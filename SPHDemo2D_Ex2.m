@@ -52,6 +52,7 @@ end
 
 toc
 
+save('sph_demo2_results.mat', 'X');
 GenerateGIF('sph_demo2.gif', X, 0.1, dt)
 
 end
