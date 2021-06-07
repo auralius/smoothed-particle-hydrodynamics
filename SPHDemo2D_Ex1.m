@@ -4,7 +4,7 @@ close all
 clc
 
 % Simulation parameters
-tEnd            = 50;        % time at which simulation ends
+tEnd            = 30;        % time at which simulation ends
 dt              = 0.01;      % timestep
 m               = 0.1;       % particle mass
 h               = 0.01;      % smoothing length
@@ -53,6 +53,7 @@ end
 
 toc
 
+save('sph_demo1_results.mat', 'X');
 GenerateGIF('sph_demo1.gif', X, 0.1, dt)
 
 end
@@ -141,8 +142,8 @@ h_fig = figure;
 hold on 
 h_plot = plot(X(:,1,1), X(:,2,1), 'b.');
 axis equal
-xlim([0 1.1]);
-ylim([0 1.1]);
+xlim([0 1]);
+ylim([0 1]);
 
 K = size(X , 3);
 for k = 1 : K
