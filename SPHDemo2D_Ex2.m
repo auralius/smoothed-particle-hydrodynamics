@@ -52,7 +52,7 @@ end
 
 toc
 
-GenerateGIF('sph_demo1.gif', X, 0.1, dt)
+GenerateGIF('sph_demo2.gif', X, 0.1, dt)
 
 end
 
