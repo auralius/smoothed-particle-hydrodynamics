@@ -1,7 +1,8 @@
 # smoothed-particle-hydrodynamics
 A MATLAB implementation of the smoothed particle hydrodynamics based on the Philip Mocz's paper, in both CPU and GPU. 
 
-By using a GPU, we can speed up the computation to about 10 times. Here, I am using NVidia Tesla K20m.  
+By using a GPU, we can speed up the computation to about 10 times. Here, I am using the NVidia Tesla K20m. It is probably the cheapest Tesla card in second-hand markets. ;-)
+A normal GPU also works.  
 
 Please read Philip Mocz's paper here:  
 https://pmocz.github.io/manuscripts/pmocz_sph.pdf  
@@ -32,7 +33,7 @@ Waaayy more free-falling particles also arranged in a grid formation  ;-) ;-)
 
 Additional notes:
 
-SPHDemo2D_Ex2_NeighbourSearch_CPU.m uses a very simple neughbour search mechanism to reduce the execution time. We first sort all nodes based on their distance to the origin. Hence, the adjacent nodes are neighbours.
+SPHDemo2D_Ex2_NeighbourSearch_CPU.m uses a very simple neighbour search mechanism to reduce the execution time. We first sort all nodes based on their distances to the origin. Hence, the adjacent nodes are neighbours.
 
 Contact:  
 manurunga@yadex.com
