@@ -1,25 +1,25 @@
-function SPHDemo2D_Ex2()
+function SPHDemo2D_Ex2_NeighbourSearch_CPU()
 clear all
 close all
 clc
 
 % Simulation parameters
-tEnd            = 50;        % time at which simulation ends
+tEnd            = 30;        % time at which simulation ends
 dt              = 0.01;      % timestep
 m               = 0.1;       % particle mass
 h               = 0.01;      % smoothing length
-rho_to_P_const  = 0.1;       % equation of state constant
+rho_to_p_const  = 0.1;       % equation of state constant
 n_poly          = 1;         % polytropic index
-nu              = 5;        % damping
+nu              = 10;        % damping
 k_wall          = 100;
-n_neighbours    = 100;
+n_neighbours    = 40;
 
 % Create parrticles and define their initial locations
 k = 1;
-for px = 0 : 2*h : 0.6
+for px = 0 : 2*h : 0.2
     for py = 0 : 2*h : 1
         x(k,:)=[px py];
-        k = k + 1;
+        k = k + 1;     
     end
 end
 
@@ -43,7 +43,7 @@ for i =1 : K
     
     % update densities, pressures, accelerations
     rho = CalculateDensity(x, sorted_idx, m, h, n_neighbours);
-    P = rho_to_P_const * rho * (1 + 1/n_poly);
+    P = rho_to_p_const * rho * (1 + 1/n_poly);
     a = CalculateAcceleration(x, sorted_idx, v, m, rho, P, nu, h, k_wall,n_neighbours);
     
     % store the results for animation purpose
@@ -52,8 +52,8 @@ end
 
 toc
 
-save('sph_demo2_results.mat', 'X');
-GenerateGIF('sph_demo2.gif', X, 0.1, dt)
+save('sph_demo2_ns_cpu.mat', 'X');
+GenerateGIF('sph_demo2_ns_cpu.gif', X, 0.1, dt)
 
 end
 

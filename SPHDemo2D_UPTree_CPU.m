@@ -1,5 +1,5 @@
-function SPHDemo2D_UPTree()
-clear all
+function SPHDemo2D_UPTree_CPU()
+clear
 close all
 clc
 
@@ -47,8 +47,8 @@ end
 
 toc
 
-save('up_tree_sim_result.mat', 'X');
-GenerateGIF('sph_demo_up_tree.gif', X, 0.1, dt)
+save('up_tree_cpu.mat', 'X');
+GenerateGIF('up_tree_cpu.gif', X, 0.1, dt)
 
 end
 

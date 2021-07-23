@@ -1,5 +1,5 @@
-function SPHDemo2D_Ex1()
-clear all
+function SPHDemo2D_Ex1_CPU()
+clear
 close all
 clc
 
@@ -8,7 +8,7 @@ tEnd            = 30;        % time at which simulation ends
 dt              = 0.01;      % timestep
 m               = 0.1;       % particle mass
 h               = 0.01;      % smoothing length
-rho_to_P_const  = 0.1;       % equation of state constant
+rho_to_p_const  = 0.1;       % equation of state constant
 n_poly          = 1;         % polytropic index
 nu              = 10;        % damping
 k_wall          = 100;
@@ -21,8 +21,6 @@ for px = 0 : 2*h : 0.2
         k = k + 1;     
     end
 end
-
-%x = [0.2 0.5; 0.201 0.6; 0.202 0.7];
 
 N = size(x,1); % Number of particles
 a = zeros(N,2);
@@ -41,7 +39,7 @@ for i =1 : K
     
     % update densities, pressures, accelerations
     rho = CalculateDensity(x, m, h);
-    P = rho_to_P_const * rho * (1 + 1/n_poly);
+    P = rho_to_p_const * rho * (1 + 1/n_poly);
     a = CalculateAcceleration(x, v, m, rho, P, nu, h);
     
     % apply contact force by the walls
@@ -53,8 +51,8 @@ end
 
 toc
 
-save('sph_demo1_results.mat', 'X');
-GenerateGIF('sph_demo1.gif', X, 0.1, dt)
+save('sph_demo1_cpu.mat', 'X');
+GenerateGIF('sph_demo1_cpu.gif', X, 0.1, dt)
 
 end
 
@@ -64,10 +62,10 @@ N = size(x,1);
 rho = zeros(N,1);
 
 for i = 1 : N    
-    % initialize density with i = j contribution
+   % initialize density with i = j contribution
     rho(i) = m * Kernel(0, h);
     
-    for j = i+1 : N 
+    for j = i+1 : N
         % calculate vector between two particles
         uij = x(i,:) - x(j,:);
         rho_ij = m * Kernel(uij, h);
