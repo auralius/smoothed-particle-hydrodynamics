@@ -1,3 +1,5 @@
+[![View Smoothed particle hydrodynamics on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/96334-smoothed-particle-hydrodynamics)
+
 # smoothed-particle-hydrodynamics
 A MATLAB implementation of the smoothed particle hydrodynamics based on the Philip Mocz's paper, in both CPU and GPU. 
 
