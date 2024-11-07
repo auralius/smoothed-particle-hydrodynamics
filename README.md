@@ -16,8 +16,8 @@ https://github.com/pmocz/sph-python
 These are some examples in this repository:  
 
 Example 1:  
-Free-falling Universitas Pertamina's logo  
-![alt text](https://github.com/auralius/smoothed-particle-hydrodynamics/blob/main/figures/sph_demo_up_tree.gif)
+Free-falling Universitas Telkom's logo  
+![alt text](https://github.com/auralius/smoothed-particle-hydrodynamics/blob/main/figures/sph_demo_telu.gif)
 
 
 Example 2:  
